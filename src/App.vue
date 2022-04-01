@@ -23,19 +23,17 @@ export default {
   methods:{
     keyPressed(e){
       if(e.key != "Backspace"){
-        this.inputChars[this.currentRow][this.currentCell] = e.key;
+        this.$set(this.inputChars[this.currentRow], this.currentCell, e.key);
         this.currentCell++;
         if(this.currentCell == 5){
            this.currentRow++;
            this.currentCell = 0;
         }
-      }else if(this.currentRow > 0 && this.currentCell > 0){
-        this.inputChars[this.currentRow][this.currentCell] = "";
-        this.currentRow--;
+      }else if(e.key == "Backspace" && this.currentCell != 0){
         this.currentCell--;
+        this.$set(this.inputChars[this.currentRow], this.currentCell, " ");
       }
       console.log(this.inputChars)
-      this.$forceUpdate();
     }
   },
   created(){

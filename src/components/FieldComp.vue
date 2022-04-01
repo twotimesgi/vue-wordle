@@ -1,6 +1,6 @@
 <template>
     <div class="table">
-        <RigaWord v-for="(row, index) in 5" :key="index" :targetWord="targetWord" :input="input" :i="i"/>
+        <RigaWord v-for="(row, index) in 5" :key="index" :targetWord="targetWord" :input="input[index]"/>
     </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   props: {
     targetWord: String,
     i: Number,
-    input: Array
+    input: Array,
   }
 }
 </script> 
